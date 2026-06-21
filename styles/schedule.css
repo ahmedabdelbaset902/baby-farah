@@ -1,0 +1,298 @@
+/* =========================================
+   SCHEDULE SECTION
+========================================= */
+
+.schedule{
+    width:100%;
+    padding:80px 0;
+    position:relative;
+}
+
+/* TITLE */
+.schedule-title{
+    text-align:center;
+    font-family:'Great Vibes', cursive;
+    font-size:50px;
+    color:#a78706;
+    margin-bottom:60px;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline{
+    position:relative;
+    max-width:1000px;
+    margin:0 auto;
+    padding:20px 0;
+}
+
+/* الخط في المنتصف */
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:3px;
+    height:100%;
+
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(187,132,4,.4),
+        #bb8404,
+        rgba(187,132,4,.4),
+        transparent
+    );
+
+    border-radius:20px;
+    box-shadow:0 0 10px rgba(187,132,4,.25);
+}
+
+/* =========================================
+   TIMELINE ITEM
+========================================= */
+
+.timeline-item{
+    position:relative;
+    width:50%;
+    padding:30px 40px;
+
+    opacity:0;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+/* LEFT */
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+    transform:translateX(-80px);
+}
+
+/* RIGHT */
+.timeline-item:nth-child(even){
+    left:50%;
+    text-align:left;
+    transform:translateX(80px);
+}
+
+/* SHOW ON SCROLL */
+.timeline-item.show{
+    opacity:1;
+}
+
+.timeline-item.show:nth-child(odd),
+.timeline-item.show:nth-child(even){
+    transform:translateX(0);
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.content{
+    background:#fdf5de;
+    border:1px solid rgba(187,132,4,.25);
+    border-radius:18px;
+    padding:20px;
+    position:relative;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.timeline-item.show .content{
+    animation:popUp .7s ease;
+}
+
+.content:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+@keyframes popUp{
+    0%{
+        transform:scale(.92);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================================
+   DOT
+========================================= */
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+    background:#bb8404;
+
+    box-shadow:
+        0 0 0 4px rgba(187,132,4,.15),
+        0 0 15px rgba(187,132,4,.5);
+}
+
+.timeline-item:nth-child(odd)::before{
+    right:-7px;
+}
+
+.timeline-item:nth-child(even)::before{
+    left:-7px;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.top-icon{
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+    color:#bb8404;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    margin-bottom:12px;
+}
+
+/* الأيقونة مع الكارد اليمين */
+.timeline-item:nth-child(odd) .top-icon{
+    margin-left:auto;
+    margin-right:0;
+}
+
+/* الأيقونة مع الكارد الشمال */
+.timeline-item:nth-child(even) .top-icon{
+    margin-right:auto;
+    margin-left:0;
+}
+
+/* =========================================
+   TEXT
+========================================= */
+
+.content h3{
+    font-size:20px;
+    margin:8px 0;
+    color:#4b1730;
+    font-family:'Cormorant Garamond', serif;
+}
+
+.content span{
+    font-size:12px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+.details .ar{
+    font-size:14px;
+    color:#666;
+    line-height:1.8;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+    .schedule-title{
+        font-size:40px;
+    }
+
+    .timeline::before{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .timeline-item{
+        width:45%;
+        padding:15px;
+        margin-bottom:20px;
+    }
+
+    .timeline-item:nth-child(odd){
+        left:0;
+        text-align:right;
+    }
+
+    .timeline-item:nth-child(even){
+        left:55%;
+        text-align:left;
+    }
+
+    .content{
+        padding:15px;
+        border-radius:14px;
+    }
+
+    .content h3{
+        font-size:16px;
+    }
+
+    .details .ar{
+        font-size:12px;
+        line-height:1.6;
+    }
+
+    .top-icon{
+        width:40px;
+        height:40px;
+        font-size:16px;
+    }
+
+    .timeline-item:nth-child(odd)::before{
+        right:-25px;
+    }
+
+    .timeline-item:nth-child(even)::before{
+        left:-25px;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL PHONES
+========================================= */
+
+@media (max-width:480px){
+
+    .timeline-item{
+        width:42%;
+        padding:10px;
+    }
+
+    .content{
+        padding:12px;
+    }
+
+    .content h3{
+        font-size:14px;
+    }
+
+    .details .ar{
+        font-size:11px;
+    }
+}
