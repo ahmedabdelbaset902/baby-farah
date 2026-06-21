@@ -1,0 +1,233 @@
+/* =========================
+   COUNTDOWN SECTION
+========================= */
+
+.countdown{
+    position:relative;
+    overflow:hidden;
+    padding:60px 8% 120px;
+    text-align:center;
+    z-index:1;
+    margin-top:-40px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.countdown-title{
+    position:relative;
+    display:inline-block;
+    font-family:'Great Vibes', cursive;
+    font-size:45px;
+    font-weight:500;
+    color:#a78706;
+    margin-top:20px;
+    letter-spacing:3px;
+    line-height:1;
+    text-shadow:0 20px 40px rgba(232,75,138,.15);
+    animation:titleFloatSoft 3.5s ease-in-out infinite;
+}
+
+.countdown-title h2::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-14px;
+    transform:translateX(-50%);
+    width:140px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ca8e04,
+        transparent
+    );
+}
+
+/* =========================
+   TIMER
+========================= */
+
+.timer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-top:50px;
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.time-box{
+    position:relative;
+
+    width:135px;
+    height:135px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12),
+        inset 0 1px 1px rgba(255,255,255,.45);
+
+    overflow:hidden;
+
+    transition:.4s ease;
+}
+
+/* shine effect */
+
+.time-box::before{
+    content:"";
+    position:absolute;
+    top:-60%;
+    left:-60%;
+
+    width:220%;
+    height:220%;
+
+    background:linear-gradient(
+        120deg,
+        transparent 35%,
+        rgba(255,255,255,.18) 50%,
+        transparent 65%
+    );
+
+    transform:rotate(25deg);
+}
+
+.time-box:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.5);
+}
+
+/* =========================
+   NUMBER
+========================= */
+
+.time-box h3{
+    margin:0;
+
+    font-size:46px;
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+
+    color:#fff8e8;
+
+    line-height:1;
+
+    text-shadow:
+        0 0 15px rgba(255,248,201,.55),
+        0 3px 10px rgba(0,0,0,.25);
+
+    animation:numberFloat 3s ease-in-out infinite;
+}
+
+/* =========================
+   LABEL
+========================= */
+
+.time-box span{
+    margin-top:10px;
+
+    font-size:12px;
+    font-weight:500;
+
+    text-transform:uppercase;
+    letter-spacing:3px;
+
+    color:#ffffff;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes titleFloatSoft{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+@keyframes numberFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-2px);
+    }
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.countdown-image img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    display:block;
+    margin:30px auto;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .countdown{
+        padding:50px 5% 120px;
+    }
+
+    .countdown-title{
+        font-size:40px;
+    }
+
+    .timer{
+        gap:8px;
+        justify-content:center;
+    }
+
+    .time-box{
+        width:78px;
+        height:95px;
+        border-radius:20px;
+    }
+
+    .time-box h3{
+        font-size:28px;
+    }
+
+    .time-box span{
+        font-size:15px;
+        letter-spacing:1px;
+    }
+
+    .countdown-image img{
+        width:100%;
+    }
+}

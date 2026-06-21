@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+/* =========================
+   BASE RESET (اختياري مفيد)
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+
+.video-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    z-index: 0;
+}
+.bg-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(2); /* جرّب 1.1 أو 1.2 */
+    opacity: 5;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px 20px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.invite-title,
+.couple-name,
+.date,
+.time {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.invite-title {
+    font-size: clamp(22px, 3vw, 42px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.couple-name {
+    font-size: clamp(40px, 5vw, 65px);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.heart {
+    font-size: 32px;
+    margin: 15px 0;
+    color: red;
+}
+
+.date {
+    margin-top: 20px;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.time {
+    margin-top: 8px;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 800px;
+    margin-top: 60px;
+}
+
+/* الصور */
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+}
+
+/* الكبيرة */
+.img-big {
+    position: absolute;
+    width: 65%;
+    left: -5%;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* الصغيرة */
+.img-small {
+    position: absolute;
+    width: 48%;
+    right: 0;
+    top: 40px;
+    z-index: 2;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.invite-title,
+.couple-name,
+.heart,
+.date,
+.time,
+.gallery {
+    opacity: 0;
+}
+
+.main.show .invite-title {
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.main.show .couple-name {
+    animation: fadeUp 1.2s ease forwards 0.2s;
+}
+
+.main.show .heart {
+    animation: fadeUp 1.2s ease forwards 0.4s;
+}
+
+.main.show .date {
+    animation: fadeUp 1.2s ease forwards 0.6s;
+}
+
+.main.show .time {
+    animation: fadeUp 1.2s ease forwards 0.8s;
+}
+
+.main.show .gallery {
+    animation: fadeUp 1.2s ease forwards 1s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    .invite-title {
+        font-size: 28px;
+    }
+
+    .couple-name {
+        font-size: 42px;
+    }
+
+    .heart {
+        font-size: 26px;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+
+    .time {
+        font-size: 16px;
+    }
+
+    .gallery {
+        height: 650px;
+        margin-top: 40px;
+    }
+
+    .img-big {
+        width: 72%;
+        left: -8%;
+    }
+
+    .img-small {
+        width: 55%;
+        right: -3%;
+        top: 20px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .gallery {
+        height: 560px;
+        margin-top: 30px;
+    }
+
+    .img-big {
+        width: 78%;
+        left: -10%;
+    }
+
+    .img-small {
+        width: 58%;
+        right: -5%;
+        top: 10px;
+    }
+}
